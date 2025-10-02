@@ -1,0 +1,59 @@
+Module12 AdvancedExample
+
+    ' This program demonstrates many VB.NET lexemes
+
+    Sub Main()
+        ' Decimal integers
+        Dim intValue As Integer = 42
+        Dim longValue As Long = 1234567890
+
+        ' Floating point and decimal
+        Dim floatValue As Single = 3.14F
+        Dim doubleValue As Double = 2.718281828
+        Dim decimalValue As Decimal = 12345.67D
+( (
+        ' Hexadecimal and Octal literals
+        Dim hexValue As Integer = &H2A       ' 42 in hex
+        Dim hexBig As Long = &HFFEE11        ' large hex number
+        Dim octValue As Integer = &O52       ' 42 in octal
+        Dim octBig As Long = &O77777         ' big octal number
+
+        ' Boolean and string
+        Dim isReady As Boolean = True
+        Dim message As String = "Lexical test program"
+        Dim letter As Char = "X"c
+
+        ' Date literals
+        Dim simpleDate As Date = #2025-10-02#
+        Dim usDate As Date = #12/25/2025#
+        Dim dateWithTime As Date = #10/02/2025 10:30 AM#
+        Dim fullDateTime As Date = #01-01-2000 23:59:59#
+
+        ' Arrays
+        Dim nums() As Integer = {1, 2, 3, 4, 5, hexValue, octValue}
+
+        ' Conditional usage
+        If isReady AndAlso (hexValue = intValue) Then
+            Console.WriteLine("Hex equals decimal")
+        End If
+
+        ' Loop through numbers
+        For Each n As Integer In nums
+            Console.WriteLine("Number: " & n)
+        Next
+
+        ' Operations with Date
+        Dim daysDiff As TimeSpan = fullDateTime - simpleDate
+        Console.WriteLine("Days difference: " & daysDiff.TotalDays)
+
+        ' Call to function
+        Dim result As Integer = AddNumbers(hexValue, octValue)
+        Console.WriteLine("Sum of hex and oct is " & result)
+
+    End Sub
+
+    Function AddNumbers ( a As UInteger, b As UInteger) As UInteger
+        Return a + b
+    End Function
+~]
+End Module
